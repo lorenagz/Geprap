@@ -15,7 +15,7 @@ class PermisosAdmin(admin.ModelAdmin):
 
 @admin.register(Rol_Permiso)
 class Rol_PermisosAdmin(admin.ModelAdmin):
-    list_display = ('rol', 'permiso')
+    list_display = ('id', 'rol', 'permiso')
 
 @admin.register(Usuario)
 class UsuariosAdmin(admin.ModelAdmin):
@@ -37,7 +37,7 @@ class PedidoAdmin(admin.ModelAdmin):
 
 @admin.register(Producto_Pedido)
 class Producto_PedidoAdmin(admin.ModelAdmin):
-    list_display = ('id_Pedido', 'id_producto', 'cantidad')
+    list_display = ('id','id_Pedido', 'id_producto', 'cantidad')
 
 @admin.register(Servicio)
 class ServicioAdmin(admin.ModelAdmin):
@@ -45,7 +45,7 @@ class ServicioAdmin(admin.ModelAdmin):
 
 @admin.register(Servicio_Pedido)
 class Servicio_PedidoAdmin(admin.ModelAdmin):
-    list_display = ('id_Pedido', 'id_servicio')
+    list_display = ('id', 'id_Pedido', 'id_servicio')
 
 @admin.register(Venta)
 class VentasAdmin(admin.ModelAdmin):

@@ -1,0 +1,50 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{% block titulo %} Listado de Permisos por Roles {% endblock %}
+{% block subtitulo %} Permiso por Roles {% endblock %}
+
+{% block contenedor %}
+    <h1>Permiso por Roles</h1>
+
+    <a class="btn btn-warning" href="{% url 'geprapapp:formularioPermisoRol' %}">Agregar Permiso por Rol</a><br><br>
+
+    {% if messages %}
+
+        {% for message in messages %}
+        <div class="alert alert-{% if message.tags %}{{ message.tags }}{% else %}dark{% endif %}"role="alert">{{ message }}</div>
+        {% endfor %}
+
+    {% endif %}
+    
+    {% if datos %} 
+
+        <table class="table table-striped" width="100%" border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Rol</th>
+                    <th>Nombre Permiso</th>
+                    <th>Acción</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+        {% for p in datos %}
+            <tr>
+                <td>{{ p.id }}</td>
+                <td>{{ p.nombreRol }}</td>
+                <td>{{ p.nombrePermiso }}</td>
+                <td><a href="" class="btn btn-primary">Editar</a></td>
+                <td><a href="" class="btn btn-danger">Eliminar</a></td>
+            </tr>
+        {% endfor %} 
+            </tbody>
+        </table>
+    
+    {% else %} 
+        no hay datos 
+    {% endif %} 
+
+    
+{% endblock %}

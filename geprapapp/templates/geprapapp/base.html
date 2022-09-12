@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Software Geprap{% endblock %}</title>
+    <link href="{% static 'geprapapp/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'geprapapp/css/style.css' %}">
+
+    <link rel="icon" type="image/ico" href="{% static 'geprapapp/favicon/logoGeprapSolo.ico' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark"  style="background-color: rgb(40, 11, 82);">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'geprapapp:index' %}"><img src="{% static 'geprapapp/img/logoFinal-01.png' %}" alt=""> {% block subtitulo %}{% endblock %}</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'geprapapp:listarPermiso' %}">Permisos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'geprapapp:listarRol' %}">Rol</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'geprapapp:listarPermisoRol' %}">PermisosRol</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="">Usuarios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="">Categoría</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="">Productos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="">Pedidos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="">ProductosPedido</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="">Servicios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="">ServiciosPedido</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="">Agenda</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      {% block contenedor %} --------------- {% endblock %}
+
+    <script src="{% static 'geprapapp/js/popper.min.js' %}"></script>
+    <script src="{% static 'geprapapp/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'geprapapp/js/libreria.js' %}"></script>
+
+</body>
+</html>
+   

@@ -1,0 +1,19 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{% block titulo %} Crear Permiso {% endblock %}
+
+{% block contenedor %}
+
+<h2>Agregar Permiso</h2>
+
+<form action="{% url 'geprapapp:guardarPermiso' %}" method="post">
+    {% csrf_token %}
+    <label>Nombre</label><br>
+    <input type="text" name="nombre" id=""><br><br>
+    
+    <button type="submit">Enviar</button>
+
+</form>
+
+{% endblock %}
