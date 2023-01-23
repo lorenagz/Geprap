@@ -1,0 +1,33 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{% block contenedor %}
+<h3 style="text-align: center;">Editar Pedido</h3>
+<br>
+
+<div class="container" style="text-align: center;">
+    <form action="{% url 'geprapapp:editarPedido' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ pedido.id }}" />
+
+        <label>Fecha Pedido</label><br>
+        <input type="date" class="form-control" class="form-control" name="fecha_pedido" value="{{ pedido.fecha_pedido|date:'Y-m-d' }}" /><br><br> 
+
+        <label>Total</label><br>
+        <input type="number" class="form-control" name="total" value="{{ pedido.total }}" /><br><br>
+
+        <label>Usuario</label><br>
+        <select class="form-control" name="usuario">
+            <option>Seleccione:</option>
+            {% for u in usu %}
+                <option value="{{ u.id }}" {% if pedido.usuario.id == u.id %}selected=""{% endif %}>{{ u.cedula }} - {{ u.nombre }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Estado</label><br>
+        <input type="text" class="form-control" name="estado" value="{{ pedido.estado }}" /><br><br>
+
+        <button type="submit">Actualizar</button>
+    </form>
+</div>
+{% endblock %}

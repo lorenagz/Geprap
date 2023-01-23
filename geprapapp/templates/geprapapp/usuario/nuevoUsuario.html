@@ -1,0 +1,45 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{% block contenedor %}
+<h3 style="text-align: center">Agregar Usuario</h3>
+<br>
+
+<div class="container" style="text-align: center;">
+    <form action="{% url 'geprapapp:guardarUsuario' %}" method="post">
+        {% csrf_token %}
+        <label>Cédula</label><br>
+        <input type="number" class="form-control" name="cedula" id=""><br><br> 
+
+        <label>Nombre</label><br>
+        <input type="text" class="form-control" name="nombre" id=""><br> <br> 
+
+        <label>Teléfono</label><br>
+        <input type="number" class="form-control" name="telefono" id=""><br><br>
+
+        <label>Dirección</label><br>
+        <input type="text" class="form-control" name="direccion" id=""><br><br>
+
+        <label>Email</label><br>
+        <input type="email" class="form-control"name="correo" id=""><br><br>
+
+        <label>Nombre Usuario</label><br>
+        <input type="text" class="form-control" name="nombreUsuario" id=""><br><br>
+
+        <label>Contraseña</label><br>
+        <input type="password" class="form-control" name="clave" id=""><br><br>
+
+        <label>Rol</label><br>
+        <select  class="form-control" name="rol">
+            <option value="">Seleccione:</option>
+            <option value="A">Administrador</option>
+            <option value="O">Operario</option>
+            <option value="C">Cliente</option>
+            <option value="I">Instalador</option>
+        </select><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+{% endblock %}

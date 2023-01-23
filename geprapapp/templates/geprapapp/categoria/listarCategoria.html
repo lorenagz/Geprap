@@ -1,0 +1,77 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{% block titulo %} Listado de Categoría {% endblock %}
+
+{% block contenedor %}
+    <h1>Categorías</h1>
+
+    <a class="btn btn-warning" href="{% url 'geprapapp:formularioCategoria' %}">Agregar Categoría</a><br>
+    
+    {% if datos %}
+    <br> 
+
+    <form class="d-flex" role="search" action="{% url 'geprapapp:buscarCategoria' %}" method="post">
+      {% csrf_token %}
+      <input onkeyup="buscarCategoria('{% url 'geprapapp:buscarCategoria' %}');" class="form-control" type="search" name="buscar" id="buscar">
+    </form><br>
+
+    <div id="respuesta">
+
+        <table class="table table-striped" width="100%" border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acción</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+        {% for c in datos %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.nombre }}</td>
+                <td>{{ c.desc}}</td>
+                <td><a href="{% url 'geprapapp:edicionCategoria' c.id %}" class="btn btn-info">Editar</a></td>
+                <td><a href="/geprapapp/eliminarCategoria/{{c.id}}" class="btn btn-dark">Eliminar</a></td>
+            </tr>
+        {% endfor %} 
+            </tbody>
+        </table>
+
+        <p>Página {{ datos.number }} de {{ datos.paginator.num_pages }}.</p>
+        
+        <nav aria-label="...">
+            <ul class="pagination">
+              <li class="page-item {% if not datos.has_previous %}disabled{% endif %}">
+                <a class="page-link" href="?page=1">&laquo;</a>
+              </li>
+              <li class="page-item {% if not datos.has_previous %}disabled{% endif %}">
+                <a class="page-link" {% if datos.has_previous %}href="?page={{ datos.previous_page_number }}"{% endif %}>Anterior</a>
+              </li>
+              
+                {% for i in "x"|rjust:datos.paginator.num_pages|make_list %}
+                    <li class="page-item {% if forloop.counter == datos.number %}active{% endif %}" aria-current="page">
+                        <a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a>
+                    </li>
+                {% endfor %}
+
+              <li class="page-item {% if not datos.has_next %}disabled{% endif %}">
+                <a class="page-link" {% if datos.has_next %}href="?page={{ datos.next_page_number }}"{% endif %}>Siguiente</a>
+              </li>
+              <li class="page-item {% if not datos.has_next %}disabled{% endif %}">
+                <a class="page-link" {% if datos.has_next %}href="?page={{ datos.paginator.num_pages }}"{% endif %}>&raquo;</a>
+              </li>
+            </ul>
+          </nav>
+        </div>  
+
+    
+    {% else %} 
+        no hay datos 
+    {% endif %} 
+
+    
+{% endblock %}

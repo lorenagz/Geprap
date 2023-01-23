@@ -1,0 +1,17 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{%block contenedor%}
+
+<div class="container" style="text-align: center;">
+    <form method="post" action="{% url 'geprapapp:restablecerContrasena' %}">
+        {% csrf_token %}
+        <h2 style="color:black" >Ingrese correo electrónico para recuperar contraseña</h2>
+        <br>
+        <label for="correo" id="exampleModalLabel">Correo</label>
+        <input class="form-control" id="correo" name="correo"><br>
+        <input class="btn btn-info" type="submit" value="Enviar">
+    </form>
+</div>
+
+{% endblock %}

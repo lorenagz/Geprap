@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'geprapapp'
+    'geprapapp',
+    'tienda',
+    'carrito',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'carrito.context_processor.total_carrito',
             ],
         },
     },
@@ -118,7 +121,22 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#Configuración para reestablecer contraseña
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'astrid.saldarriaga6@misena.edu.co'
+EMAIL_HOST_PASSWORD = 'gzztwtqlotxpoqar'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+#'astrid.saldarriaga6@misena.edu.co' 'gzztwtqlotxpoqar'
+#'astridsaldarriaga591@gmail.com''hmdhhxnbeeywnvnk'

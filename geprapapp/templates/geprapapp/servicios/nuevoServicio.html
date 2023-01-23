@@ -1,0 +1,20 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{% block titulo %} Crear Servicio {% endblock %}
+
+{% block contenedor %}
+
+<h3 style="text-align: center;">Agregar Servicio</h3>
+<br>
+<div class="container" style="text-align: center;">
+    <form action="{% url 'geprapapp:guardarServicio' %}" method="post">
+        {% csrf_token %}
+        <label>Descripción</label><br><br>
+        <input type="text" class="form-control" name="descripcion" id=""><br><br>
+        
+        <button type="submit">Enviar</button>
+
+    </form>
+</div>
+{% endblock %}

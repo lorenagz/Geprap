@@ -1,7 +1,444 @@
 {% extends "geprapapp/base.html" %}
 {% load static %}
-
 {% block contenedor %}
-<h1>Bienvenido a Geprap</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="Bootstrap, Landing page, Template, Business, Service">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Grayrids">
+    <title>Software Geprap</title>
+    <!--====== Favicon Icon ======-->
+    <link rel="icon" type="image/ico" href="{% static 'geprapapp/favicon/logoGeprapSolo.ico' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'geprapapp/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'geprapapp/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'geprapapp/css/LineIcons.css' %}">
+    <link rel="stylesheet" href="{% static 'geprapapp/css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'geprapapp/css/owl.theme.css' %}">
+    <link rel="stylesheet" href="{% static 'geprapapp/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'geprapapp/css/nivo-lightbox.css' %}">
+    <link rel="stylesheet" href="{% static 'geprapapp/css/main.css' %}">    
+    <link rel="stylesheet" href="{% static 'geprapapp/css/responsive.css' %}">
+
+  </head>
+  
+  <body>
+
+    <!-- Header Section Start -->
+    <header id="home" class="hero-area">    
+      <div class="overlay">
+
+      </div>
+      
+      <div class="container">      
+        <div class="row space-100">
+          <div class="col-lg-6 col-md-12 col-xs-12">
+            <div class="contents">
+              <h2 class="head-title">Somos la mejor alternativa, para que su empresa crezca y se fortalezca.</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, perferendis in? Ratione consequuntur exercitationem</p>
+              <div class="header-button">
+                <a href="#showcase" class="btn btn-border-filled">Portafolio</a>
+                <a href="#features"  class="btn btn-border">Servicios</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-xs-12 p-0">
+            <div class="intro-img">
+              <img src="{% static 'geprapapp/img/imagenPrincipal.jpg' %}" alt="">
+            </div>            
+          </div>
+        </div> 
+      </div>             
+    </header>
+    <!-- Header Section End --> 
+
+    <!-- Cool Fetatures Section Start -->
+    <section id="features" class="section">
+      <div class="container">
+        <!-- Start Row -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="features-text section-header text-center">  
+              <div>   
+                <h2 class="section-title">Servicios que ofrecemos</h2>
+              </div> 
+            </div>
+          </div>
+
+        </div>
+        <!-- End Row -->
+        <!-- Start Row -->
+        <div class="row featured-bg">
+         <!-- Start Col -->
+          <div class="col-lg-6 col-md-6 col-xs-12 p-0">
+             <!-- Start Fetatures -->
+            <div class="feature-item featured-border1">
+               <div class="feature-icon float-left">
+                <i class="lni lni-gallery"></i>
+               </div>
+               <div class="feature-info float-left">
+                 <h4>Impresión litográfica</h4>
+                 <p>Impresiones gran formato en todo tipo de materiales:<br>lonas, adhesivos, plotter, microperforados, etc. Con<br> una excelente calidad de impresion y colores vibrantes.</p>
+               </div>
+            </div>
+            <!-- End Fetatures -->
+          </div>
+           <!-- End Col -->
+          
+         <!-- Start Col -->
+          <div class="col-lg-6 col-md-6 col-xs-12 p-0">
+             <!-- Start Fetatures -->
+            <div class="feature-item featured-border2">
+               <div class="feature-icon float-left">
+                <i class="lni lni-camera"></i>
+               </div>
+               <div class="feature-info float-left">
+                 <h4>Instalación avisos</h4>
+                 <p>Instalamos todo tipo de avisos, sin importar la altura <br> en la que se encuentre. Contamos con profesionales<br> altamente calificados.</p>
+               </div>
+            </div>
+            <!-- End Fetatures -->
+          </div>
+           <!-- End Col -->
+          
+         <!-- Start Col -->
+          <div class="col-lg-6 col-md-6 col-xs-12 p-0">
+             <!-- Start Fetatures -->
+            <div class="feature-item featured-border1">
+               <div class="feature-icon float-left">
+                <i class="lni lni-brush-alt"></i>
+               </div> 
+               <div class="feature-info float-left">
+                 <h4>Instalación de vallas y pasacalles</h4>
+                 <p>Instalamos vallas y pasacalles  sin importar la altura <br> en la que se encuentre. Contamos con profesionales <br> altamente calificados.</p>
+               </div>
+            </div>
+            <!-- End Fetatures -->
+          </div>
+           <!-- End Col -->
+          
+         <!-- Start Col -->
+          <div class="col-lg-6 col-md-6 col-xs-12 p-0">
+             <!-- Start Fetatures -->
+            <div class="feature-item featured-border2">
+               <div class="feature-icon float-left">
+                <i class="lni lni-seo"></i>
+               </div>
+               <div class="feature-info float-left">
+                 <h4>Rotulado y microperforado de carros</h4>
+                 <p>Se instala la publicidad en tu carro o camión; o <br> microperforado con publicidad impresa o para <br> oscurecer las ventanas de tu carro.</p>
+               </div>
+            </div>
+            <!-- End Fetatures -->
+          </div>
+           <!-- End Col -->
+          
+         <!-- Start Col -->
+          <div class="col-lg-6 col-md-6 col-xs-12 p-0">
+             <!-- Start Fetatures -->
+            <div class="feature-item featured-border3">
+               <div class="feature-icon float-left">
+                 <i class="lni-reload"></i>
+               </div>
+               <div class="feature-info float-left">
+                 <h4>Desinstalación avisos</h4>
+                 <p>Se desinstala el aviso que deseas cambiar en el <br> negocio,  y se deja el lugar adecuado para su <br> próxima instalación .</p>
+               </div>
+            </div>
+            <!-- End Fetatures -->
+          </div>
+           <!-- End Col -->
+          
+         <!-- Start Col -->
+          <div class="col-lg-6 col-md-6 col-xs-12 p-0">
+             <!-- Start Fetatures -->
+            <div class="feature-item">
+               <div class="feature-icon float-left">
+                 <i class="lni-support"></i>
+               </div>
+               <div class="feature-info float-left">
+                 <h4>Desinstalación adhesivos</h4>
+                 <p>Se desinstala el adhesivo de cualquier superficie <br> y se deja en optimas condiciones el lugar para <br> su próxima instalación.</p>
+               </div>
+            </div>
+            <!-- End Fetatures -->
+          </div>
+           <!-- End Col -->
+          
+
+        </div>
+        <!-- End Row -->
+      </div>
+    </section>
+    <!-- Cool Fetatures Section End --> 
+      </div>
+    </section>
+    <!-- Recent Showcase Section End --> 
+
+    <section id="showcase">
+      <div class="container-fluid right-position">
+        <!-- Start Row -->
+        <div class="row gradient-bg">
+          <div class="col-lg-12">
+            <div class="showcase-text section-header text-center">  
+              <div>   
+                <h2 class="section-title">Trabajos Recientes</h2>
+                <div class="desc-text">
+                  <p>Contamos con una amplia experiencia en producción e instalación de</p>  
+                  <p>publicidad, tenemos reconocimiento por grandes  y reconocidas marcas</p>
+                  <p>que han confiado en nuestro excelente servicio.</p>
+                </div>
+              </div> 
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center showcase-area">
+          <div class="col-lg-12 col-md-12 col-xs-12 pr-0">
+            <div class="showcase-slider owl-carousel">
+
+              <div class="item">
+                <div class="screenshot-thumb">
+                  <img src="{% static 'geprapapp/img/showcase/02.jpg' %}" class="img-fluid" alt="" />
+                  <div class="hover-content text-center">
+                    <div class="fancy-table">
+                      <div class="table-cell">
+                        <div class="single-text">
+                          <p>Icon , Web</p>
+                          <h5>Redesign Slack</h5>
+                        </div>
+                        <div class="zoom-icon">
+                          <a class="lightbox" href="{% static 'geprapapp/img/showcase/02.jpg' %}"><i class="lni-zoom-in"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="screenshot-thumb">
+                  <img src="{% static 'geprapapp/img/showcase/02.jpg' %}" class="img-fluid" alt="" />
+                  <div class="hover-content text-center">
+                    <div class="fancy-table">
+                      <div class="table-cell">
+                        <div class="single-text">
+                          <p>Icon , Web</p>
+                          <h5>Redesign Slack</h5>
+                        </div>
+                        <div class="zoom-icon">
+                          <a class="lightbox" href="{% static 'geprapapp/img/showcase/02.jpg' %}"><i class="lni-zoom-in"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="screenshot-thumb">
+                  <img src="{% static 'geprapapp/img/showcase/02.jpg' %}" class="img-fluid" alt="" />
+                  <div class="hover-content text-center">
+                    <div class="fancy-table">
+                      <div class="table-cell">
+                        <div class="single-text">
+                          <p>Icon , Web</p>
+                          <h5>Redesign Slack</h5>
+                        </div>
+                        <div class="zoom-icon">
+                          <a class="lightbox" href="{% static 'geprapapp/img/showcase/02.jpg' %}"><i class="lni-zoom-in"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="screenshot-thumb">
+                  <img src="{% static 'geprapapp/img/showcase/02.jpg' %}" class="img-fluid" alt="" />
+                  <div class="hover-content text-center">
+                    <div class="fancy-table">
+                      <div class="table-cell">
+                        <div class="single-text">
+                          <p>Icon , Web</p>
+                          <h5>Redesign Slack</h5>
+                        </div>
+                        <div class="zoom-icon">
+                          <a class="lightbox" href="{% static 'geprapapp/img/showcase/02.jpg' %}"><i class="lni-zoom-in"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="screenshot-thumb">
+                  <img src="{% static 'geprapapp/img/showcase/02.jpg' %}" class="img-fluid" alt="" />
+                  <div class="hover-content text-center">
+                    <div class="fancy-table">
+                      <div class="table-cell">
+                        <div class="single-text">
+                          <p>Icon , Web</p>
+                          <h5>Redesign Slack</h5>
+                        </div>
+                        <div class="zoom-icon">
+                          <a class="lightbox" href="{% static 'geprapapp/img/showcase/02.jpg' %}"><i class="lni-zoom-in"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="screenshot-thumb">
+                  <img src="{% static 'geprapapp/img/showcase/02.jpg' %}" class="img-fluid" alt="" />
+                  <div class="hover-content text-center">
+                    <div class="fancy-table">
+                      <div class="table-cell">
+                        <div class="single-text">
+                          <p>Icon , Web</p>
+                          <h5>Redesign Slack</h5>
+                        </div>
+                        <div class="zoom-icon">
+                          <a class="lightbox" href="{% static 'geprapapp/img/showcase/02.jpg' %}"><i class="lni-zoom-in"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="screenshot-thumb">
+                  <img src="{% static 'geprapapp/img/showcase/02.jpg' %}" class="img-fluid" alt="" />
+                  <div class="hover-content text-center">
+                    <div class="fancy-table">
+                      <div class="table-cell">
+                        <div class="single-text">
+                          <p>Icon , Web</p>
+                          <h5>Redesign Slack</h5>
+                        </div>
+                        <div class="zoom-icon">
+                          <a class="lightbox" href="{% static 'geprapapp/img/showcase/02.jpg' %}"><i class="lni-zoom-in"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="screenshot-thumb">
+                  <img src="{% static 'geprapapp/img/showcase/02.jpg' %}" class="img-fluid" alt="" />
+                  <div class="hover-content text-center">
+                    <div class="fancy-table">
+                      <div class="table-cell">
+                        <div class="single-text">
+                          <p>Icon , Web</p>
+                          <h5>Redesign Slack</h5>
+                        </div>
+                        <div class="zoom-icon">
+                          <a class="lightbox" href="{% static 'geprapapp/img/showcase/02.jpg' %}"><i class="lni-zoom-in"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="screenshot-thumb">
+                  <img src="{% static 'geprapapp/img/showcase/02.jpg' %}" class="img-fluid" alt="" />
+                  <div class="hover-content text-center">
+                    <div class="fancy-table">
+                      <div class="table-cell">
+                        <div class="single-text">
+                          <p>Icon , Web</p>
+                          <h5>Redesign Slack</h5>
+                        </div>
+                        <div class="zoom-icon">
+                          <a class="lightbox" href="{% static 'geprapapp/img/showcase/02.jpg' %}"><i class="lni-zoom-in"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="screenshot-thumb">
+                  <img src="{% static 'geprapapp/img/showcase/02.jpg' %}" class="img-fluid" alt="" />
+                  <div class="hover-content text-center">
+                    <div class="fancy-table">
+                      <div class="table-cell">
+                        <div class="single-text">
+                          <p>Icon , Web</p>
+                          <h5>Redesign Slack</h5>
+                        </div>
+                        <div class="zoom-icon">
+                          <a class="lightbox" href="{% static 'geprapapp/img/showcase/02.jpg' %}"><i class="lni-zoom-in"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>     
+      </div>     
+    </section>
+
+    <!-- Footer Section Start -->
+    <footer>
+      <!-- Footer Area Start -->
+      <section id="footer-Content">
+        <div class="container">
+          <!-- Start Row -->
+          <div class="row">
+
+            <!-- Start Col -->
+            <div id="divFooter" class="col-lg-3 col-md-5 col-sm-5 col-xs-5 col-mb-12"> 
+              <div class="footer-logo">
+                <img id="imgFooter" src="{% static 'geprapapp/img/logoFinal-01.png' %}" alt="">
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6 col-sm-6 col-xs-6 col-mb-12">
+              <div class="widget">
+                <h3 class="block-title">Contáctanos</h3>
+                <p>3135947926</p>
+                <p>3213793180</p>
+                
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+      <!-- Footer area End -->       
+    </footer>
+
     
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="{% static 'geprapapp/js/jquery-min.js' %}"></script>
+    <script src="{% static 'geprapapp/js/popper.min.js' %}"></script>
+    <script src="{% static 'geprapapp/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'geprapapp/js/owl.carousel.js' %}"></script>      
+    <script src="{% static 'geprapapp/js/jquery.nav.js' %}"></script>    
+    <script src="{% static 'geprapapp/js/scrolling-nav.js' %}"></script>    
+    <script src="{% static 'geprapapp/js/jquery.easing.min.js' %}"></script>     
+    <script src="{% static 'geprapapp/js/nivo-lightbox.js' %}"></script>     
+    <script src="{% static 'geprapapp/js/jquery.magnific-popup.min.js' %}"></script>     
+    <script src="{% static 'geprapapp/js/main.js' %}"></script>
+</body>
+</html>
 {% endblock %}

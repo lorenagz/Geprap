@@ -1,0 +1,48 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{% block titulo %} Editar Usuarios {% endblock %}
+
+{% block contenedor %}
+
+<h3 style="text-align: center;">Editar Usuario ( {{ usuario.id }} )</h3>
+<br>
+<div class="container" style="text-align: center;">
+    <form action="{% url 'geprapapp:editarUsuario' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ usuario.id }}" />
+        <label>Cédula</label><br>
+        <input type="number" class="form-control" name="cedula" value = "{{ usuario.cedula }}"> <br><br>
+
+        <label>Nombre</label><br>
+        <input type="text" class="form-control" name="nombre" value = "{{ usuario.nombre }}"> <br><br>
+
+        <label>Teléfono</label><br>
+        <input type="number" class="form-control" name="telefono" value = "{{ usuario.telefono }}"> <br><br>
+
+        <label>Dirección</label><br>
+        <input type="text" class="form-control" name="direccion" value = "{{ usuario.direccion }}"> <br><br>
+
+        <label>Correo Electrónico</label><br>
+        <input type="email" class="form-control" name="correo" value = "{{ usuario.correo }}"> <br><br>
+
+        <label>Nombre Usuario</label><br>
+        <input type="text" class="form-control" name="nombreUsuario" value="{{ usuario.nombreUsuario }}"><br><br>
+
+        <label>Contraseña</label><br>
+        <input type="password" class="form-control" name="clave" value="{{ usuario.clave }}"><br><br>
+
+        <label>Rol</label><br>
+            <select class="form-control" name="rol">
+                <option value="">Seleccione:</option>
+                <option value="A" {% if usuario.rol == 'A' %}selected=""{% endif %}>Administrador</option>
+                <option value="O" {% if usuario.rol == 'O' %}selected=""{% endif %}>Operario</option>
+                <option value="C" {% if usuario.rol == 'C' %}selected=""{% endif %}>Cliente</option>
+                <option value="I" {% if usuario.rol == 'I' %}selected=""{% endif %}>Instalador</option>
+            </select><br><br>
+    
+        <button type="submit">Actualizar</button>
+
+    </form>
+</div>
+{% endblock %}

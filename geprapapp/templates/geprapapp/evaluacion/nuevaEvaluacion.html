@@ -1,0 +1,44 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{% block titulo %} Crear Evaluacion {% endblock %}
+
+{% block contenedor %}
+
+<h3 style="text-align: center;">Agregar Evaluación</h3>
+<br>
+
+<div class="container" style="text-align: center;">
+    <form action="{% url 'geprapapp:guardarEvaluacion' %}" method="post">
+        {% csrf_token %}
+        
+        <label>Pedido</label>
+        <select class="form-control" name="pedido">
+            <option>Seleccione:</option>
+            {% for p in pedido %}
+                <option value="{{ p.id }}">{{ p.id }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Usuario</label>
+        <select class="form-control" name="usuario">
+            <option>Seleccione:</option>
+            {% for u in usuario %}
+                <option value="{{ u.id }}">{{ u.id }} - {{ u.nombre }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Calificación Producto:</label><br>
+        <input type="radio" name="calificacionEvaluacion" value="Excelente"> Excelente <br>
+        <input type="radio" name="calificacionEvaluacion" value="Bueno"> Bueno <br>
+        <input type="radio" name="calificacionEvaluacion" value="Regular"> Regular <br>
+        <input type="radio" name="calificacionEvaluacion" value="Malo"> Malo <br>
+        <input type="radio" name="calificacionEvaluacion" value="Muy malo"> Muy malo<br><br>
+
+        <label>Comentario</label><br>
+        <textarea class="form-control" name="comentarios" cols="50" rows="5"></textarea><br><br>
+
+        <button type="submit">Guardar</button>
+    </form>
+</div>
+{% endblock %}

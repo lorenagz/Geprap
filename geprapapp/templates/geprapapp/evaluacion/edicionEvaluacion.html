@@ -1,0 +1,41 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{% block contenedor %}
+<h3 style="text-align: center;">Editar Evaluación</h3>
+<br>
+
+<div class="container" style="text-align: center;">
+    <form action="{% url 'geprapapp:editarEvaluacion' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ evaluacion.id }}" />
+        <label>Pedido</label><br>
+        <select class="form-control" name="pedido">
+            <option>Seleccione:</option>
+            {% for p in pedido %}
+                <option value="{{ p.id }}" {% if evaluacion.pedido.id == p.id %}selected=""{% endif %} readonly>{{ p.id }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Usuario</label><br>
+        <select class="form-control" name="usuario">
+            <option>Seleccione:</option>
+            {% for u in usuario %}
+                <option value="{{ u.id }}" {% if evaluacion.usuario.id == u.id %}selected=""{% endif %}>{{ u.id }} - {{ u.nombre }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Calificación Producto:</label><br>
+        <input type="radio" name="calificacionEvaluacion" value="Excelente" {% if evaluacion.calificacionEvaluacion == 'Excelente' %}selected=""{% endif %}> Excelente <br>
+        <input type="radio" name="calificacionEvaluacion" value="Bueno" {% if evaluacion.calificacionEvaluacion == 'Bueno' %}selected=""{% endif %}> Bueno <br>
+        <input type="radio" name="calificacionEvaluacion" value="Regular" {% if evaluacion.calificacionEvaluacion == 'Regular' %}selected=""{% endif %}> Regular <br>
+        <input type="radio" name="calificacionEvaluacion" value="Malo" {% if evaluacion.calificacionEvaluacion == 'Malo' %}selected=""{% endif %}> Malo <br>
+        <input type="radio" name="calificacionEvaluacion" value="Muy malo" {% if evaluacion.calificacionEvaluacion == 'Muy malo' %}selected=""{% endif %}> Muy malo<br><br>
+
+        <label>Comentario</label><br>
+        <textarea class="form-control" name="comentarios">{{ evaluacion.comentarios }}</textarea><br><br>
+
+        <button type="submit">Actualizar</button>
+    </form>
+</div>
+{% endblock %}

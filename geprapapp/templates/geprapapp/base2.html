@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Software Geprap{% endblock %}</title>
+    <link href="{% static 'geprapapp/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'geprapapp/css/style.css' %}">
+
+    <link rel="icon" type="image/ico" href="{% static 'geprapapp/favicon/logoGeprapSolo.ico' %}">
+</head>
+<body>
+
+    <div style="background-color: rgb(60, 12, 99); padding: 1em;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'geprapapp:index' %}"><img src="{% static 'geprapapp/img/logoFinal-01.png' %}" alt=""> {% block subtitulo %}{% endblock %}</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{% if message.tags != 'error' %}{{ message.tags }}{% elif message.tags == 'error' %}danger{% endif %}" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    {% block contenedor %} --------------- {% endblock %}
+
+    <script src="{% static 'geprapapp/js/jquery-3.6.1.min.js' %}"></script>
+    <script src="{% static 'geprapapp/js/popper.min.js' %}"></script>
+    <script src="{% static 'geprapapp/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'geprapapp/js/libreria.js' %}"></script>
+    
+</body>
+</html>

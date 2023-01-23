@@ -1,0 +1,23 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{% block titulo %} Editar Categorías {% endblock %}
+
+{% block contenedor %}
+
+<h3 style="text-align: center;">Editar Categoría</h3>
+<br>
+
+<div class="container" style="text-align: center;">
+    <form action="{% url 'geprapapp:editarCategoria' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" class="form-control" name="id" value="{{ categoria.id }}" />
+        <label>Nombre</label><br>
+        <input type="text" class="form-control" name="nombre" value="{{categoria.nombre}}" id=""><br><br>
+        <label>Descripción</label><br>
+        <input type="text" class="form-control" name="desc" value="{{categoria.desc}}" id=""><br><br>
+        
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+{% endblock %}

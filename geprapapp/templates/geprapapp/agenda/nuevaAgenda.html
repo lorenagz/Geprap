@@ -1,0 +1,28 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{% block titulo %} Crear Agenda  {% endblock %}
+
+{% block contenedor %}
+
+<h3 style="text-align: center;">Agregar Agenda</h3>
+<br>
+
+<div class="container" style="text-align: center;">
+    <form action="{% url 'geprapapp:guardarAgenda' %}" method="post">
+        {% csrf_token %}
+        <label>Fecha</label><br>
+        <input type="date" class="form-control" name="fecha_asignada" id=""><br><br>
+
+        <label>Pedido</label><br>
+        <select class="form-control" name="pedido">
+            <option>Seleccione:</option>
+            {% for p in pedido %}
+                <option value="{{ p.id }}">{{ p.id }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Agendar</button>
+    </form>
+</div>
+{% endblock %}

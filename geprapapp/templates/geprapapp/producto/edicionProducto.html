@@ -1,0 +1,32 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{% block contenedor %}
+<h3 style="text-align: center;">Editar Producto</h3>
+
+<div class="container" style="text-align: center;"></div>
+    <form action="{% url 'geprapapp:editarProducto' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ producto.id }}" />
+
+        <label>Nombre</label><br>
+        <input type="text" class="form-control" name="nombre" value="{{ producto.nombre }}" /><br><br> 
+
+        <label>Descripción</label><br>
+        <input type="text" class="form-control" name="descripcion" value="{{ producto.descripcion }}" /><br><br>
+
+        <label>Precio</label><br>
+        <input type="number" class="form-control" name="precio" value="{{ producto.precio }}" /><br><br>
+
+        <label>Categoría</label><br>
+        <select class="form-control" name="categoria">
+            <option>Seleccione:</option>
+            {% for c in cat %}
+                <option value="{{ c.id }}" {% if producto.categoria.id == c.id %}selected=""{% endif %}>{{ c.id }} - {{ c.nombre }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Actualizar</button>
+     </form>
+
+{% endblock %}

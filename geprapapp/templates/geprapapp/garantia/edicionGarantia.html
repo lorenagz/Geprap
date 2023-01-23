@@ -1,0 +1,28 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{% block contenedor %}
+<h3 style="text-align: center;">Editar Garantía</h3>
+
+<div class="container" style="text-align: center;">
+    <form action="{% url 'geprapapp:editarGarantia' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ garantia.id }}" />
+        <label>Pedido</label><br>
+        <select class="form-control" name="pedido">
+            <option>Seleccione:</option>
+            {% for p in pedido %}
+                <option value="{{ p.id }}" {% if garantia.pedido.id == p.id %}selected=""{% endif %}>{{ p.id }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Fecha Garantía</label><br>
+        <input type="date" class="form-control" class="form-control" name="fechaGarantia" value="{{ garantia.fechaGarantia|date:'Y-m-d' }}"><br><br>
+
+        <label>Descripción</label><br>
+        <textarea class="form-control" name="descripcion">{{ garantia.descripcion }}</textarea><br><br>
+
+        <button type="submit">Actualizar</button>
+    </form>
+</div>
+{% endblock %}

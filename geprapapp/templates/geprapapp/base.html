@@ -12,58 +12,128 @@
     <link rel="icon" type="image/ico" href="{% static 'geprapapp/favicon/logoGeprapSolo.ico' %}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark"  style="background-color: rgb(40, 11, 82);">
+    <nav class="navbar navbar-expand-sm navbar-dark"  style="background-color: rgb(60, 12, 99);">
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'geprapapp:index' %}"><img src="{% static 'geprapapp/img/logoFinal-01.png' %}" alt=""> {% block subtitulo %}{% endblock %}</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mr-auto w-100 justify-content-end mb-2 mb-lg-0">
+              {% if request.session.logueo.1 == 'A' %}
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarUsuarios' %}">Usuarios</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarCategoria' %}">Categoría</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarProductos' %}">Productos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarServicio' %}">Servicios</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarPedidos' %}">Pedidos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarDetallePedidos' %}">Detalle Pedidos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarAgenda' %}">Agenda</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarMetodoPago' %}">Metodos Pago</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarPagos' %}">Pagos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarEvaluaciones' %}">Evaluación</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarGarantias' %}">Garantía</a>
+                </li>
+
+              {% elif request.session.logueo.1 == 'O' %}
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarPedidos' %}">Pedidos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarDetallePedidos' %}">Detalle Pedidos</a>
+                </li>
+                
+
+              {% elif request.session.logueo.1 == 'I' %}
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarUsuarios' %}">Usuarios</a>
+                </li>  
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarPedidos' %}">Pedidos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarDetallePedidos' %}">Detalle Pedidos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:listarAgenda' %}">Agenda</a>
+                </li>
+                
+
+              {% elif request.session.logueo.1 == 'C' %}
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'geprapapp:listarPermiso' %}">Permisos</a>
+                <a class="nav-link active" href="{% url 'geprapapp:listarUsuarios' %}">Mis datos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="{% url 'geprapapp:listarRol' %}">Rol</a>
+                <a class="nav-link active" href="{% url 'geprapapp:listarPedidos' %}">Mis pedidos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="{% url 'geprapapp:listarPermisoRol' %}">PermisosRol</a>
+                <a class="nav-link active" href="{% url 'geprapapp:listarDetallePedidos' %}">Detalle Pedidos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="">Usuarios</a>
+                <a class="nav-link active" href="{% url 'geprapapp:formularioEvaluacion' %}">Evaluación</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="">Categoría</a>
+                <a class="nav-link active" href="{% url 'geprapapp:formularioGarantia' %}">Garantía</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="">Productos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="">Pedidos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="">ProductosPedido</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="">Servicios</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="">ServiciosPedido</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="">Agenda</a>
-              </li>
+
+              {% else %}
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'geprapapp:index' %}">Principal</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'Tienda' %}">Tienda</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#footer-Content">Contáctanos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Registrarse</a>
+                </li>
+              {% endif %} 
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+
+            <div class="d-flex" role="search">
+              {% if request.session.logueo %}
+                <p style="color: white;">Bienvenid@ {{ request.session.logueo.0 }}</p> 
+                <a href="{% url 'geprapapp:logout' %}" class="btn btn-success">Logout</a>
+              {% else %}
+                <a href="{% url 'geprapapp:loginFormulario' %}" class="btn btn-warning">Login</a>
+              {% endif %}
+            </div> 
+            
           </div>
         </div>
       </nav>
 
+      {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{% if message.tags != 'error' %}{{ message.tags }}{% elif message.tags == 'error' %}danger{% endif %}" role="alert">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+
       {% block contenedor %} --------------- {% endblock %}
 
+    <script src="{% static 'geprapapp/js/jquery-3.6.1.min.js' %}"></script>
     <script src="{% static 'geprapapp/js/popper.min.js' %}"></script>
     <script src="{% static 'geprapapp/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'geprapapp/js/libreria.js' %}"></script>

@@ -1,0 +1,50 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{% block contenedor %}
+<h3 style="text-align: center;">Agregar Pedido</h3>
+<br>
+
+<div class="container" style="text-align: center;">
+    <form action="{% url 'geprapapp:guardarDetallePedido' %}" method="post">
+        {% csrf_token %}
+
+        <label>Codigo Pedido</label><br>
+        <select class="form-control" name="id_pedido">
+            <option>Seleccione:</option>
+            {% for p in pedido %}
+                <option value="{{ p.id }}"> {{ p.id }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Producto</label><br>
+        <select class="form-control" name="id_producto">
+            <option>Seleccione:</option>
+            {% for p in producto %}
+                <option value="{{ p.id }}"> {{ p.id }} - {{ p.nombre }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Servicio</label><br>
+        <select class="form-control" name="id_servicio">
+            <option>Seleccione:</option>
+            {% for p in servicio %}
+                <option value="{{ p.id }}"> {{ p.id }} - {{ p.descripcion }} </option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Cantidad</label><br>
+        <input type="number" class="form-control" name="cantidad" id=""><br><br>  
+
+        <label>Cliente</label><br>
+        <select class="form-control" name="usuario">
+            <option>Seleccione:</option>
+            {% for p in usuario %}
+                <option value="{{ p.id }}"> {{ p.cedula }} - {{ p.nombre }} </option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+{% endblock %}

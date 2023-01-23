@@ -1,0 +1,36 @@
+{% extends "geprapapp/base.html" %}
+{% load static %}
+
+{% block titulo %} Crear Pagos {% endblock %}
+
+{% block contenedor %}
+
+<h3 style="text-align: center;">Agregar Pago</h3>
+<br>
+
+<div class="container" style="text-align: center;">
+    <form action="{% url 'geprapapp:guardarPago' %}" method="post">
+        {% csrf_token %}
+        <label>Plazos</label><br>
+        <input type="number" class="form-control" name="plazos" id=""><br><br>
+
+        <label>Pedido</label><br>
+        <select class="form-control" name="pedido">
+            <option>Seleccione:</option>
+            {% for p in pedido %}
+                <option value="{{ p.id }}">{{ p.id }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Metodo Pago</label><br>
+        <select class="form-control" name="formaPago">
+            <option>Seleccione:</option>
+            {% for m in metodo %}
+                <option value="{{ m.id }}">{{ m.id }} - {{ m.metodoPago }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Guardar</button>
+    </form>
+</div>
+{% endblock %}
