@@ -46,7 +46,7 @@
 {% for producto in Productos  %}
  <div class="col-md-3">
  <div class="card" style:"width:20%;margin:5px 5px;">
-    <img class="card-img-top" src="{% static 'geprapapp/img/prueba2.jpg' %}" alt="Card image cap">
+    <img class="card-img-top" src="{{ producto.imagen.url }}" alt="Card image cap">
     <div class="card-body" style="text-align:center;">
       <h7 class="card-title">{{ producto.nombre }}</h7>
       <p class="card-text">{{ producto.descripcion }} <br> altamente calificados.</p>

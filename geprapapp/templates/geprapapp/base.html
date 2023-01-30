@@ -81,6 +81,9 @@
 
               {% elif request.session.logueo.1 == 'C' %}
               <li class="nav-item">
+                <a class="nav-link active" href="{% url 'Tienda' %}">Tienda</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link active" href="{% url 'geprapapp:listarUsuarios' %}">Mis datos</a>
               </li>
               <li class="nav-item">
@@ -100,14 +103,15 @@
                 <li class="nav-item">
                   <a class="nav-link active" href="{% url 'geprapapp:index' %}">Principal</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link active" href="{% url 'Tienda' %}">Tienda</a>
-                </li>
+                
                 <li class="nav-item">
                   <a class="nav-link active" href="#footer-Content">Contáctanos</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active" href="#">Registrarse</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active"> <img src="{% static 'geprapapp/img/carrito.png' %}" style="width:30px;cursor:pointer" id="carrito" data-toggle="modal" data-target="#exampleModal"></a>
                 </li>
               {% endif %} 
             </ul>
@@ -138,6 +142,33 @@
     <script src="{% static 'geprapapp/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'geprapapp/js/libreria.js' %}"></script>
 
+    <!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Tu carro esta vacio, primero logueate
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script> 
+$("#carrito").click(function(){
+  $("#exampleModal").modal();
+})
+</script>
 </body>
 </html>
    

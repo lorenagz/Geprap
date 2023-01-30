@@ -1,6 +1,8 @@
 from unicodedata import name
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name= "carrito"
 urlpatterns = [   
@@ -10,4 +12,7 @@ urlpatterns = [
     path('restar/<int:producto_id>/',views.restar_producto,name="restar"),
     path('limpiar/',views.limpiar_carrito,name="limpiar"),
     
+    
 ]
+
+urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

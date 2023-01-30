@@ -18,7 +18,7 @@ class Carrito:
                 "precio":str(producto.precio),#se convierta a string
                 #"categoria":producto.categoria,
                 "cantidad": 1,
-               # "imagen":producto.imagen.url #carpeta de imagenes
+                "imagen":producto.imagen.url #carpeta de imagenes
                     
             }
         else:
