@@ -41,7 +41,7 @@
                 <td>{{ p.usuario }}</td>
                 <td>{{ p.estado }}</td>
                 <td><a href="{% url 'geprapapp:edicionPedido' p.id %}" class="btn btn-info">Editar</a></td>
-                <td><a href="/geprapapp/eliminarPedido/{{p.id}}" class="btn btn-dark">Eliminar</a></td>
+                <td><a href= "{% url 'geprapapp:eliminarPedido' p.id %}" class="btn btn-dark">Eliminar</a></td>
             </tr>
         {% endfor %} 
             </tbody>

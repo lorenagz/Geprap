@@ -450,7 +450,7 @@ def listaProducto(request):
         contexto = {"datos":p }
         return render(request, 'geprapapp/producto/listarProducto.html', contexto)
     else:
-        if login and(login[1] != "A"):
+        if login and(login[1] == "  A"):
             messages.warning(request, "No tiene acceso al módulo productos...")
             return redirect('geprapapp:index')
         else:
@@ -464,7 +464,7 @@ def formularioProducto(request):
         contexto = {"cat": c}
         return render(request, 'geprapapp/producto/nuevoProducto.html', contexto)
     else:    
-        if login and(login[1] != "A"):
+        if login and(login[1] == "C"):
             messages.warning(request, "No tiene acceso al módulo productos...")
             return redirect('geprapapp:index')
         else:
@@ -490,28 +490,13 @@ def guardarProducto(request):
             messages.error(request, f"Error: {e}")
         return redirect('geprapapp:listarProductos')        
     else:
-        if login and(login[1] != "A"):
+        if login and(login[1] == "A"):
             messages.warning(request, "No tiene acceso al módulo productos...")
             return redirect('geprapapp:index')
         else:
             messages.warning(request, "Inicie sesión...")
             return redirect('geprapapp:loginFormulario')
-
-def edicionProducto(request, id):
-    login = request.session.get('logueo', False)
-    if login and(login[1] == "A"):
-        p = Producto.objects.get(pk = id)
-        c = Categoria.objects.all()
-        contexto = {"cat": c, "producto": p}
-        return render(request, 'geprapapp/producto/edicionProducto.html', contexto)
-    else:
-        if login and(login[1] != "A"):
-            messages.warning(request, "No tiene acceso al módulo productos...")
-            return redirect('geprapapp:index')
-        else:
-            messages.warning(request, "Inicie sesión...")
-            return redirect('geprapapp:loginFormulario')
-
+        
 def editarProducto(request):  
     login = request.session.get('logueo', False)
     if login and (login[1] == "A"):           
@@ -728,7 +713,7 @@ def buscarServicio(request):
 # CRUD Pedido---------------------------------------------------------------------------------------------------------------------
 def listaPedido(request):
     login = request.session.get('logueo', False)
-    if login and(login[1] == "A"):
+    if login and(login[1] == "A" or login[1] == "C"):
         p = Pedido.objects.all()
 
         paginator = Paginator(p, 4)
@@ -763,7 +748,7 @@ def listaPedido(request):
 
 def formularioPedido(request):
     login = request.session.get('logueo', False)
-    if login and(login[1] == "A"):
+    if login and(login[1] == "A" or login[1] == "C"):
         u = Usuario.objects.all()
         contexto = {"usu": u}
         return render(request, 'geprapapp/pedido/nuevoPedido.html', contexto)
@@ -777,7 +762,7 @@ def formularioPedido(request):
 
 def guardarPedido(request):
     login = request.session.get('logueo', False)
-    if login and (login[1] == "A"): 
+    if login and (login[1] == "A" or login[1] == "C"): 
         try:
             if request.method == "POST":
                 p = Pedido(
@@ -890,7 +875,7 @@ def buscarPedido(request):
 # CRUD DetallePedido-----------------------------------------------------------------------------------------------------------
 def listaDetallePedido(request):
     login = request.session.get('logueo', False)
-    if login and(login[1] == "A"):
+    if login and(login[1] == "A" or login[1]== "C"):
         pd = Detalle_Pedido.objects.all()
 
         paginator = Paginator(pd, 4)
@@ -923,7 +908,7 @@ def listaDetallePedido(request):
 
 def formularioDetallePedido(request):
     login = request.session.get('logueo', False)
-    if login and(login[1] == "A"):
+    if login and(login[1] == "A" or login[1] == "C"):
         ped = Pedido.objects.all()
         pro = Producto.objects.all()
         ser = Servicio.objects.all()
@@ -940,7 +925,7 @@ def formularioDetallePedido(request):
 
 def guardarDetallePedido(request):
     login = request.session.get('logueo', False)
-    if login and (login[1] == "A"): 
+    if login and (login[1] == "A" or login[1] == "C"): 
         try:
             if request.method == "POST":
                 p = Detalle_Pedido(
