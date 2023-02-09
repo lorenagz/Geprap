@@ -74,6 +74,7 @@ class Pedido(models.Model):
     total = models.IntegerField()
     usuario = models.ForeignKey(Usuario, on_delete = models.DO_NOTHING)
     estado = models.CharField(max_length=50)
+    
     def __str__(self):
         return f"{self.usuario}"
 

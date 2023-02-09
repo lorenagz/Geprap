@@ -58,6 +58,8 @@ urlpatterns = [
     path('buscarServicio/', views.buscarServicio, name="buscarServicio"),
 
     # Pedidos--------------------------------------------------------------------------------------------
+    
+    
     path('pedidos/', views.listaPedido, name="listarPedidos"),
     path('formularioPedido/', views.formularioPedido, name="formularioPedido"),
     path('guardarPedido/',views.guardarPedido, name="guardarPedido"),

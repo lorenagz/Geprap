@@ -8,6 +8,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import messages
+from carrito import *
 
 #gestion de errorres base de datos
 from django.db import IntegrityError
@@ -759,6 +760,13 @@ def formularioPedido(request):
         else:
             messages.warning(request, "Inicie sesión...")
             return redirect('geprapapp:loginFormulario')
+        
+        
+        
+     
+            
+            
+                     
 
 def guardarPedido(request):
     login = request.session.get('logueo', False)

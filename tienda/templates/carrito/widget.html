@@ -13,7 +13,7 @@
     </thead>
     <tbody>
       {%if  request.session.carrito.items %}
-           {% for key, value in request.session.carrito.items  %}
+         <span{% for key, value in request.session.carrito.items %}> </span>
            <tr class="text-center">
 
              <td>{{value.nombre}}</td>
@@ -41,8 +41,14 @@
       <td colspan="3">
         Total: {{total_carrito}}&nbsp;
         <a href="{% url 'carrito:limpiar' %}" class="btn btn-sm bt-success">Limpiar</a><br>
-        <a href="{% url 'geprapapp:listarPedidos' %}" class="btn btn-sm bt-success">Guardar</a><br>
+        
+        <a href="{% url 'carrito:guardarCarrito' %}" class="btn btn-sm bt-success" id="Guardar">Guardar</a><br>
       </td>
     
     </tfoot>
     </table>
+   <script>
+   {% comment %} let carrito = document.getElementById("carro")
+   console.log(carrito) {% endcomment %}
+
+   </script>
