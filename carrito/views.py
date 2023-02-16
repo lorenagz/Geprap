@@ -57,6 +57,7 @@ def limpiar_carrito(request):
     
     return redirect('Tienda')
 
+
 def guardarPedidoCarrito(request):
     now = datetime.now()
     login = request.session.get('logueo', False)
@@ -78,7 +79,7 @@ def guardarPedidoCarrito(request):
                     p.save()
                     messages.success(request, "Pedido guardado correctamente!!")
                     return redirect('geprapapp:listarPedidos')
-                    return HttpResponse("Pedido guardado correctamente")
+                    
 
 #fin carrito----------------------------------------------------------------------------------------------
 

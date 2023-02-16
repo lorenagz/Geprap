@@ -27,8 +27,8 @@ urlpatterns = [
     path('buscarUsuario/', views.buscarUsuario, name="buscarUsuario"), 
 
     #Registrar cliente-------------------------------------------------------------------------------
-    #path('formularioRegistro/', views.formularioRegistro, name="formularioRegistro"),
-    #path('guardarRegistro/',views.guardarRegistro, name="guardarRegistro"),
+    path('formularioRegistro/', views.ClienteFormulario, name="formularioRegistro"),
+    path('RegistroCliente/',views.RegistroCliente, name="RegistroCliente"),
 
     # Categoría--------------------------------------------------------------------------------------
     path('categorias/', views.listaCategoria, name="listarCategoria"),

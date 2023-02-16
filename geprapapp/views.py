@@ -109,7 +109,32 @@ def index(request):
     return render(request, 'geprapapp/index.html')
 
 #CRUD Registro cliente-----------------------------------------------------------------------------------------------------------------
+def ClienteFormulario(request):
+    return render(request, 'geprapapp/Cliente/registro_cliente.html')
 
+
+
+def RegistroCliente(request):
+    try:
+        if request.method == "POST":
+            user = Usuario(
+                    cedula = request.POST["cedula"],
+                    nombre = request.POST["nombre"],
+                    telefono = request.POST["telefono"],
+                    direccion = request.POST["direccion"],
+                    correo = request.POST["correo"],
+                    nombreUsuario = request.POST["nombreUsuario"],
+                    clave = request.POST["clave"],
+                    rol = "C",
+                    )
+            user.save()
+            messages.success(request, "Usuario guardado correctamente!!")
+        else:
+                messages.warning(request, "Usted no ha enviado datos....")
+    except Exception as e :
+            messages.error(request, f"Error: {e}")
+    return redirect('geprapapp:listarUsuarios')   
+    
 
 # CRUD Usuarios-------------------------------------------------------------------------------------------------------------------------
 def listaUsuarios(request):
